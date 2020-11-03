@@ -9,7 +9,7 @@ model = pickle.load(open('model.pkl', 'rb'))
 
 @app.route('/')
 def home():
-    return render_template('Sample.html')
+    return render_template('index.html')
 
 @app.route('/predict',methods=['POST','GET'])
 def predict():
@@ -20,9 +20,9 @@ def predict():
 
     output = round(prediction[0], 2)
 
-    return render_template('Sample.html', prediction_text='CO2EMISSIONS should be $ {}'.format(output))
+    return render_template('index.html', prediction_text='CO2EMISSIONS should be $ {}'.format(output))
 
-@app.route('/results',methods=['POST'])
+@app.route('/results',methods=['POST','GET'])
 def results():
 
     data = request.get_json(force=True)
