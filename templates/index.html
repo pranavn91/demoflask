@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Deployment Tutorial 1</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  
+</head>
+
+<body style="background: #000;">
+ <div class="login">
+	<h1>CO2EMISSIONS Forecasting</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="ENGINESIZE" placeholder="ENGINESIZE" required="required" />
+        <input type="text" name="CYLINDERS" placeholder="CYLINDERS" required="required" />
+		<input type="text" name="FUELCONSUMPTION_CITY" placeholder="FUELCONSUMPTION_CITY" required="required" />
+		<input type="text" name="FUELCONSUMPTION_HWY" placeholder="FUELCONSUMPTION_HWY" required="required" />
+		<input type="text" name="FUELCONSUMPTION_COMB" placeholder="FUELCONSUMPTION_COMB" required="required" />
+				<input type="text" name="FUELCONSUMPTION_COMB_MPG" placeholder="FUELCONSUMPTION_COMB_MPG" required="required" />
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict CO2EMISSIONS</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+</body>
+</html>
