@@ -22,18 +22,6 @@ def predict():
 
     return render_template('index.html', prediction_text='CO2EMISSIONS should be $ {}'.format(output))
 
-@app.route('/results',methods=['POST','GET'])
-def results():
-
-    data = request.get_json(force=True)
-    prediction = model.predict([np.array(list(data.values()))])
-
-    output = prediction[0]
-    return jsonify(output)
-
-
-
-
 
 if __name__ == "__main__":
     app.run()
